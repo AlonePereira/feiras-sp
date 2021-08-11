@@ -13,55 +13,54 @@ public class Feira {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
     private Long id;
 
-    @Column(nullable = false, name = "LAT")
+    @Column(nullable = false)
     private Double lat;
 
-    @Column(nullable = false, name = "LONG")
+    @Column(nullable = false)
     private Double lon;
 
-    @Column(nullable = false, name = "SETCENS")
+    @Column(nullable = false)
     private String setcens;
 
-    @Column(nullable = false, name = "AREAP")
+    @Column(nullable = false, name = "areap")
     private String areaP;
 
-    @Column(nullable = false, name = "CODDIST")
+    @Column(nullable = false, name = "coddist")
     private Integer codDist;
 
-    @Column(nullable = false, name = "DISTRITO")
+    @Column(nullable = false)
     private String distrito;
 
-    @Column(nullable = false, name = "CODSUBPREF")
+    @Column(nullable = false, name = "codsubpref")
     private Integer codigoSubPrefeitura;
 
-    @Column(nullable = false, name = "SUBPREFE")
+    @Column(nullable = false, name = "subprefe")
     private String subPrefeitura;
 
-    @Column(nullable = false, name = "REGIAO5")
+    @Column(nullable = false)
     private String regiao5;
 
-    @Column(nullable = false, name = "REGIAO8")
+    @Column(nullable = false)
     private String regiao8;
 
-    @Column(nullable = false, name = "NOME_FEIRA")
+    @Column(nullable = false, name = "nome_feira")
     private String nomeFeira;
 
-    @Column(nullable = false, name = "REGISTRO")
+    @Column(nullable = false)
     private String registro;
 
-    @Column(nullable = false, name = "LOGRADOURO")
+    @Column(nullable = false)
     private String logradouro;
 
-    @Column(nullable = false, name = "NUMERO")
+    @Column(nullable = false)
     private String numero;
 
-    @Column(nullable = false, name = "BAIRRO")
+    @Column(nullable = false)
     private String bairro;
 
-    @Column(nullable = false, name = "REFERENCIA")
+    @Column(nullable = false)
     private String referencia;
 
     public Long getId() {
