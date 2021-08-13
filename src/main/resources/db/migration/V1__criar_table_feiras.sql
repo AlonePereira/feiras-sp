@@ -1,6 +1,6 @@
 create table feiras
 (
-    id         bigint not null primary key,
+    id         bigint not null AUTO_INCREMENT primary key,
     areap      varchar(255) not null,
     bairro     varchar(255) not null,
     coddist    int          not null,
