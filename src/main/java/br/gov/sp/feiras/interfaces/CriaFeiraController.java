@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 public class CriaFeiraController {
 
     @PostMapping("/feira")
-    public ResponseEntity<Object> criarFeira(@RequestBody FeiraDTO feiraDTO) {
+    public ResponseEntity<Object> criarFeira(@Valid @RequestBody FeiraDTO feiraDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).build();
     }
 

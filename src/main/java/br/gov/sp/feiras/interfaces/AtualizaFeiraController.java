@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 public class AtualizaFeiraController {
 
     @PutMapping("/feira/{id}")
-    public ResponseEntity<Object> atualizarFeira(@PathVariable Long id, @RequestBody FeiraDTO feira) {
+    public ResponseEntity<Object> atualizarFeira(@PathVariable Long id, @Valid @RequestBody FeiraDTO feira) {
 
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).build();
     }

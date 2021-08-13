@@ -19,9 +19,15 @@ class BuscaFeirasControllerTest {
 
     @Test
     void testBuscarFeirasComSucesso() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/feiras?nomeFeira=CECILIA ITER"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON));
+    }
+
+    @Test
+    void testBuscarFeirasComErro() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/feiras"))
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
 }

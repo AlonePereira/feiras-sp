@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 public class BuscaFeirasController {
 
     @GetMapping("/feiras")
-    public ResponseEntity<Object> buscarFeiras(@ModelAttribute ParamBuscaFeiras param) {
+    public ResponseEntity<Object> buscarFeiras(@Valid @ModelAttribute() ParamBuscaFeiras param) {
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).build();
     }
 

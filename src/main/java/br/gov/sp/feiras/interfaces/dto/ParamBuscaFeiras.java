@@ -1,5 +1,8 @@
 package br.gov.sp.feiras.interfaces.dto;
 
+import br.gov.sp.feiras.interfaces.constraint.ValidaParamBuscaFeira;
+
+@ValidaParamBuscaFeira
 public class ParamBuscaFeiras {
 
     private String distrito;
