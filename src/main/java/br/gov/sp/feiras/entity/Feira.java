@@ -1,4 +1,4 @@
-package br.gov.sp.feiras.model;
+package br.gov.sp.feiras.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
