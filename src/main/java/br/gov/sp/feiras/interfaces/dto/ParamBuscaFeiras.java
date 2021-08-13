@@ -1,4 +1,4 @@
-package br.gov.sp.feiras.interfaces.request;
+package br.gov.sp.feiras.interfaces.dto;
 
 public class ParamBuscaFeiras {
 

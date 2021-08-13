@@ -1,6 +1,6 @@
 package br.gov.sp.feiras.interfaces;
 
-import br.gov.sp.feiras.interfaces.request.ParamBuscaFeiras;
+import br.gov.sp.feiras.interfaces.dto.ParamBuscaFeiras;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
