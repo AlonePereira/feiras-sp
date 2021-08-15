@@ -13,4 +13,6 @@ public interface FeiraVOMapper {
 
     FeiraVO toFeiraVO(Feira feira);
 
+    Feira toFeira(FeiraVO feiraVO);
+
 }
