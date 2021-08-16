@@ -2,8 +2,8 @@ package br.gov.sp.feiras.application.busca;
 
 import br.gov.sp.feiras.application.mapper.FeiraVOMapper;
 import br.gov.sp.feiras.application.vo.BuscaFeirasVO;
-import br.gov.sp.feiras.repository.FeiraRepository;
-import br.gov.sp.feiras.repository.FeiraSpecificationFactoryComponent;
+import br.gov.sp.feiras.entity.repository.FeiraRepository;
+import br.gov.sp.feiras.entity.repository.FeiraSpecificationFactoryComponent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

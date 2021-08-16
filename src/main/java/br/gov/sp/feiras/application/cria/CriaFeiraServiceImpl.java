@@ -2,7 +2,7 @@ package br.gov.sp.feiras.application.cria;
 
 import br.gov.sp.feiras.application.mapper.FeiraVOMapper;
 import br.gov.sp.feiras.application.vo.FeiraVO;
-import br.gov.sp.feiras.repository.FeiraRepository;
+import br.gov.sp.feiras.entity.repository.FeiraRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

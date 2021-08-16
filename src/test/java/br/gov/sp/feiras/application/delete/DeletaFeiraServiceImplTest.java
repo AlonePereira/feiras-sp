@@ -1,6 +1,6 @@
 package br.gov.sp.feiras.application.delete;
 
-import br.gov.sp.feiras.repository.FeiraRepository;
+import br.gov.sp.feiras.entity.repository.FeiraRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

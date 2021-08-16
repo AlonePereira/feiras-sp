@@ -3,7 +3,7 @@ package br.gov.sp.feiras.application.cria;
 import br.gov.sp.feiras.application.mapper.FeiraVOMapper;
 import br.gov.sp.feiras.application.vo.FeiraVO;
 import br.gov.sp.feiras.entity.Feira;
-import br.gov.sp.feiras.repository.FeiraRepository;
+import br.gov.sp.feiras.entity.repository.FeiraRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

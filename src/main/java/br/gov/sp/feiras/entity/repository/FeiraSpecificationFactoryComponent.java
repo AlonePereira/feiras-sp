@@ -1,4 +1,4 @@
-package br.gov.sp.feiras.repository;
+package br.gov.sp.feiras.entity.repository;
 
 import br.gov.sp.feiras.application.vo.BuscaFeirasVO;
 import br.gov.sp.feiras.entity.Feira;
