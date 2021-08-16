@@ -5,6 +5,8 @@ import br.gov.sp.feiras.interfaces.dto.FeiraDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FeiraDTOMapperTest {
@@ -214,6 +216,61 @@ class FeiraDTOMapperTest {
         feiraVO.setReferencia("TV RUA PRETORIA");
 
         var feiraDTORS = mapper.toFeiraDTORS(feiraVO);
+
+        assertEquals(feiraVO.getId(), feiraDTORS.getId(), "Valor do ID divergente");
+        assertEquals(feiraVO.getLat(), feiraDTORS.getLat(), "Valor da Latitude divergente");
+        assertEquals(feiraVO.getLon(), feiraDTORS.getLon(), "Valor da Longitude divergente");
+        assertEquals(feiraVO.getSetcens(), feiraDTORS.getSetcens(), "Valor do Setcens divergente");
+        assertEquals(feiraVO.getAreaP(), feiraDTORS.getAreaP(), "Valor da AreaP divergente");
+        assertEquals(feiraVO.getCodDist(), feiraDTORS.getCodDist(), "Valor do CodDist divergente");
+        assertEquals(feiraVO.getDistrito(), feiraDTORS.getDistrito(), "Valor do Distrito divergente");
+        assertEquals(feiraVO.getCodigoSubPrefeitura(), feiraDTORS.getCodigoSubPrefeitura(),
+                "Valor do CodigoSubPrefeitura divergente");
+        assertEquals(feiraVO.getSubPrefeitura(), feiraDTORS.getSubPrefeitura(), "Valor da SubPrefeitura divergente");
+        assertEquals(feiraVO.getRegiao5(), feiraDTORS.getRegiao5(), "Valor da Regiao5 divergente");
+        assertEquals(feiraVO.getRegiao8(), feiraDTORS.getRegiao8(), "Valor da Regiao8 divergente");
+        assertEquals(feiraVO.getNomeFeira(), feiraDTORS.getNomeFeira(), "Valor do NomeFeira divergente");
+        assertEquals(feiraVO.getRegistro(), feiraDTORS.getRegistro(), "Valor do Registro divergente");
+        assertEquals(feiraVO.getLogradouro(), feiraDTORS.getLogradouro(), "Valor do Logradouro divergente");
+        assertEquals(feiraVO.getNumero(), feiraDTORS.getNumero(), "Valor do Numero divergente");
+        assertEquals(feiraVO.getBairro(), feiraDTORS.getBairro(), "Valor do Bairro divergente");
+        assertEquals(feiraVO.getReferencia(), feiraDTORS.getReferencia(), "Valor da Referencia divergente");
+    }
+
+    @Test
+    void testToFeiraDTORSListComListaFeiraVOListNull() {
+        var feiraDTORSList = mapper.toFeiraDTORSList(null);
+
+        assertNull(feiraDTORSList, "FeiraDTORSList Deveria ser Nulo");
+    }
+
+    @Test
+    void testToFeiraDTORSList() {
+        var feiraVO = new FeiraVO();
+
+        feiraVO.setId(1L);
+        feiraVO.setLat(-46550164D);
+        feiraVO.setLon(-23558733D);
+        feiraVO.setSetcens("355030885000091");
+        feiraVO.setAreaP("3550308005040");
+        feiraVO.setCodDist(87);
+        feiraVO.setDistrito("VILA FORMOSA");
+        feiraVO.setCodigoSubPrefeitura(26);
+        feiraVO.setSubPrefeitura("ARICANDUVA-FORMOSA-CARRAO");
+        feiraVO.setRegiao5("Leste");
+        feiraVO.setRegiao8("Leste 1");
+        feiraVO.setNomeFeira("VILA FORMOSA");
+        feiraVO.setRegistro("4041-0");
+        feiraVO.setLogradouro("RUA MARAGOJIPE");
+        feiraVO.setNumero("S/N");
+        feiraVO.setBairro("VL FORMOSA");
+        feiraVO.setReferencia("TV RUA PRETORIA");
+
+        var feiraDTORSList = mapper.toFeiraDTORSList(Collections.singletonList(feiraVO));
+
+        assertEquals(1, feiraDTORSList.size(), "Deveria ter 1 Elemento no Lista de FeiraDTORS");
+
+        var feiraDTORS = feiraDTORSList.get(0);
 
         assertEquals(feiraVO.getId(), feiraDTORS.getId(), "Valor do ID divergente");
         assertEquals(feiraVO.getLat(), feiraDTORS.getLat(), "Valor da Latitude divergente");

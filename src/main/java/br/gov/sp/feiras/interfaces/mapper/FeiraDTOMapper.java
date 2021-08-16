@@ -5,6 +5,8 @@ import br.gov.sp.feiras.interfaces.dto.FeiraDTO;
 import br.gov.sp.feiras.interfaces.dto.FeiraDTORS;
 import org.mapstruct.*;
 
+import java.util.List;
+
 @Mapper
 public interface FeiraDTOMapper {
 
@@ -16,6 +18,8 @@ public interface FeiraDTOMapper {
     FeiraVO toFeiraVO(Long id, FeiraDTO feiraDTO);
 
     FeiraDTORS toFeiraDTORS(FeiraVO feiraVO);
+
+    List<FeiraDTORS> toFeiraDTORSList(List<FeiraVO> feiraVOList);
 
     @AfterMapping
     default void setNumero(@MappingTarget FeiraVO feiraVO, FeiraDTO feiraDTO) {
