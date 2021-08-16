@@ -1,5 +1,6 @@
 package br.gov.sp.feiras.application.delete;
 
+import br.gov.sp.feiras.application.exception.FeiraNotFound;
 import br.gov.sp.feiras.entity.repository.FeiraRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +29,7 @@ public class DeletaFeiraServiceImpl implements DeletaFeiraService {
         } else {
             LOG.error("Feira de ID {} não existe para processeguir com precesso de deleção", id);
 
-            throw  new RuntimeException("Feira Inexistente");
+            throw new FeiraNotFound("Feira Inexistente");
         }
     }
 

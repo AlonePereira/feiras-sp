@@ -1,5 +1,6 @@
 package br.gov.sp.feiras.application.delete;
 
+import br.gov.sp.feiras.application.exception.FeiraNotFound;
 import br.gov.sp.feiras.entity.repository.FeiraRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,9 +38,7 @@ class DeletaFeiraServiceImplTest {
     void testTentarDeletarComFeiraInexistente() {
         Mockito.when(repository.existsById(ArgumentMatchers.anyLong())).thenReturn(false);
 
-        assertThrows(RuntimeException.class, () -> {
-            service.deletarFeira(1L);
-        });
+        assertThrows(FeiraNotFound.class, () -> service.deletarFeira(1L), "Deveria Lançar FeiraNotFound");
 
         Mockito.verify(repository, Mockito.times(0)).deleteById(ArgumentMatchers.anyLong());
     }

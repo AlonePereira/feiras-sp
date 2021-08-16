@@ -1,5 +1,6 @@
 package br.gov.sp.feiras.application.atualiza;
 
+import br.gov.sp.feiras.application.exception.FeiraNotFound;
 import br.gov.sp.feiras.application.mapper.FeiraVOMapper;
 import br.gov.sp.feiras.application.vo.FeiraVO;
 import br.gov.sp.feiras.entity.Feira;
@@ -51,8 +52,8 @@ class AtualizaFeiraServiceImplTest {
 
         var feiraVO = new FeiraVO();
         feiraVO.setId(1L);
-        assertThrows(RuntimeException.class, () -> service.atualizarFeira(feiraVO),
-                "Deveria Lançar uma RuntimeExeption");
+        assertThrows(FeiraNotFound.class, () -> service.atualizarFeira(feiraVO),
+                "Deveria Lançar uma FeiraNotFound");
     }
 
 }

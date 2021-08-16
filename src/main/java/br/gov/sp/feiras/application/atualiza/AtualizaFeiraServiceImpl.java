@@ -1,5 +1,6 @@
 package br.gov.sp.feiras.application.atualiza;
 
+import br.gov.sp.feiras.application.exception.FeiraNotFound;
 import br.gov.sp.feiras.application.mapper.FeiraVOMapper;
 import br.gov.sp.feiras.application.vo.FeiraVO;
 import br.gov.sp.feiras.entity.repository.FeiraRepository;
@@ -32,7 +33,7 @@ public class AtualizaFeiraServiceImpl implements AtualizaFeiraService {
             return feiraVOMapper.toFeiraVO(feira);
         } else {
             LOG.error("Feira com ID {} não encontrada para ser atualizada.", feiraVO.getId());
-            throw  new RuntimeException("Feira não encontrada");
+            throw  new FeiraNotFound("Feira não encontrada");
         }
     }
 
