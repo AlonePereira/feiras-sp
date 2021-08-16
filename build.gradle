@@ -13,6 +13,22 @@ repositories {
 	mavenCentral()
 }
 
+sourceSets {
+	integrationTest {
+		compileClasspath += sourceSets.main.output + sourceSets.test.output
+		runtimeClasspath += sourceSets.main.output + sourceSets.test.output
+
+		java.srcDir 'src/integrationTest/java'
+		resources.srcDir 'src/integrationTest/resources'
+	}
+}
+
+configurations {
+	integrationTestCompile.extendsFrom testCompile
+	integrationTestRuntime.extendsFrom testRuntime
+	integrationTestImplementation.extendsFrom testImplementation
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -21,17 +37,39 @@ dependencies {
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 	runtimeOnly 'mysql:mysql-connector-java'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	integrationTestCompile 'org.springframework.boot:spring-boot-starter-test'
+	integrationTestRuntimeOnly 'org.springframework.boot:spring-boot-starter-test'
+	integrationTestRuntimeOnly 'com.h2database:h2'
 }
 
 test {
 	useJUnitPlatform()
+}
+
+task integrationTest(type: Test) {
+	description = 'Runs the integration tests.'
+	group = "verification"
+
+	testClassesDirs = sourceSets.integrationTest.output.classesDirs
+	classpath = sourceSets.integrationTest.runtimeClasspath
+	outputs.upToDateWhen { false }
+	useJUnitPlatform()
 	finalizedBy jacocoTestReport
 }
 
-jacocoTestReport {
-	dependsOn test
+rootProject.tasks.named("processIntegrationTestResources") {
+	duplicatesStrategy = 'include'
 }
+
+jacocoTestReport {
+	dependsOn integrationTest
+}
+
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test
 
 compileJava {
 	options.compilerArgs += [

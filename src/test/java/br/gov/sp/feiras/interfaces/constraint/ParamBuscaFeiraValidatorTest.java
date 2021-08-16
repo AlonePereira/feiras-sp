@@ -34,7 +34,8 @@ class ParamBuscaFeiraValidatorTest {
                 Arguments.of(new ParamBuscaFeiras(), false),
                 Arguments.of(montaParam("", "", "", ""), false),
                 Arguments.of(montaParam(null, "Leste", null, null), true),
-                Arguments.of(montaParam("Sé", "", "", ""), true)
+                Arguments.of(montaParam("Sé", "", "", ""), true),
+                Arguments.of(montaParam("", "", "", "VILA FORMOSA"), true)
         );
     }
 
