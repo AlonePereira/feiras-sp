@@ -27,7 +27,7 @@ public class CriaFeiraController {
         this.mapper = mapper;
     }
 
-    @PostMapping("/feira")
+    @PostMapping("/feiras")
     public ResponseEntity<Object> criarFeira(@Valid @RequestBody FeiraDTO feiraDTO) {
         LOG.info("Inicio do processo de criando Nova Feira");
 

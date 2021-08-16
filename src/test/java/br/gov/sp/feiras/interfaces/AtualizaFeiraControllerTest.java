@@ -21,7 +21,7 @@ class AtualizaFeiraControllerTest {
 
     @Test
     void testAtualizarFeiraComSucesso() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.put("/feira/1")
+        mockMvc.perform(MockMvcRequestBuilders.put("/feiras/1")
                 .content(requestFeira())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -30,7 +30,7 @@ class AtualizaFeiraControllerTest {
 
     @Test
     void testTentaAtualizarFeiraComErro() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.put("/feira/1")
+        mockMvc.perform(MockMvcRequestBuilders.put("/feiras/1")
                 .content("")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());

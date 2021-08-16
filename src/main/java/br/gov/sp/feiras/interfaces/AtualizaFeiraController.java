@@ -13,7 +13,7 @@ import javax.validation.Valid;
 @RestController
 public class AtualizaFeiraController {
 
-    @PutMapping("/feira/{id}")
+    @PutMapping("/feiras/{id}")
     public ResponseEntity<Object> atualizarFeira(@PathVariable Long id, @Valid @RequestBody FeiraDTO feira) {
 
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).build();

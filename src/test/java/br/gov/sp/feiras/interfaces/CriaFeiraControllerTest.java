@@ -42,7 +42,7 @@ class CriaFeiraControllerTest {
                 .thenReturn(montarFeiraVO());
         Mockito.when(mapper.toFeiraDTORS(ArgumentMatchers.any(FeiraVO.class))).thenReturn(montarFeiraDTORS());
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/feira")
+        mockMvc.perform(MockMvcRequestBuilders.post("/feiras")
                 .content(requestFeira())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
@@ -52,7 +52,7 @@ class CriaFeiraControllerTest {
 
     @Test
     void testCriacaoFeiraComErro() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.post("/feira")
+        mockMvc.perform(MockMvcRequestBuilders.post("/feiras")
                 .content("")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
